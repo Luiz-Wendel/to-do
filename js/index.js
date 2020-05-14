@@ -8,7 +8,7 @@ const addDeleteEvent = () => {
   btnCheckList.forEach(btn => {
     // Excluir to-do
     btn.addEventListener('click', event => {
-      event.target.parentElement.parentElement.remove()
+      event.target.closest('div.tarefa').remove()
     })
   });
 }
