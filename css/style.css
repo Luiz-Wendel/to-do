@@ -28,3 +28,7 @@ footer {
   width: 80%;
   border-radius: 20px;
 }
+
+.btn-outline-danger::placeholder {
+  color: red;
+}
