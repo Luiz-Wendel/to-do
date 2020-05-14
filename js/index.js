@@ -2,20 +2,6 @@ const txtTarefa = document.querySelector('input#txtTarefa')
 const btnAdd = document.querySelector('img#add')
 const board = document.querySelector('div#board')
 
-const addDeleteEvent = () => {
-  btnCheckList = document.querySelectorAll('img.check')
-
-  btnCheckList.forEach(btn => {
-    // Excluir to-do
-    btn.addEventListener('click', event => {
-      event.target.closest('div.tarefa').remove()
-    })
-  });
-}
-
-// Iniciar o evento de deletar para os elementos ja existentes
-addDeleteEvent()
-
 const addTarefa = () => {
   let tarefa = document.createElement('div')
   tarefa.classList.add('tarefa')
@@ -30,6 +16,8 @@ const addTarefa = () => {
   imgCheck.classList.add('icon', 'check')
   imgCheck.setAttribute('src', 'img/check.png')
 
+  imgCheck.onclick = () => tarefa.remove()
+
   divTxtTarefa.append(txtTarefa.value)
 
   divBtnCheck.append(imgCheck)
@@ -38,9 +26,6 @@ const addTarefa = () => {
   tarefa.append(divBtnCheck)
 
   board.append(tarefa)
-
-  // Adicionar evento para excluir to-do
-  addDeleteEvent()
 
   txtTarefa.value = ''
 }
