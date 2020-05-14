@@ -2,6 +2,20 @@ const txtTarefa = document.querySelector('input#txtTarefa')
 const btnAdd = document.querySelector('img#add')
 const board = document.querySelector('div#board')
 
+const addDeleteEvent = () => {
+  btnCheckList = document.querySelectorAll('img.check')
+
+  btnCheckList.forEach(btn => {
+    // Excluir to-do
+    btn.addEventListener('click', event => {
+      event.target.parentElement.parentElement.remove()
+    })
+  });
+}
+
+// Iniciar o evento de deletar para os elementos ja existentes
+addDeleteEvent()
+
 const addTarefa = () => {
   let tarefa = document.createElement('div')
   tarefa.classList.add('tarefa')
