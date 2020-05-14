@@ -31,12 +31,14 @@ const addTarefa = () => {
 }
 
 const isEmpty = (txtValue) => {
-  if (txtValue)
+  if (txtValue && txtValue.trim().length > 0)
     return true
 
   txtTarefa.classList.toggle('border-0')
   txtTarefa.classList.toggle('btn-outline-danger')
   txtTarefa.setAttribute('placeholder', "Task can't be empty")
+
+  alert("Task can't be empty")
 
   return false
 }
@@ -45,7 +47,7 @@ txtTarefa.addEventListener('focus', () => {
   if (txtTarefa.classList.contains('btn-outline-danger')) {
     txtTarefa.classList.toggle('border-0')
     txtTarefa.classList.toggle('btn-outline-danger')
-    txtTarefa.setAttribute('placeholder', '')
+    txtTarefa.removeAttribute('placeholder')
   }
 })
 
