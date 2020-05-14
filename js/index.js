@@ -45,11 +45,31 @@ const addTarefa = () => {
   txtTarefa.value = ''
 }
 
+const isEmpty = (txtValue) => {
+  if (txtValue)
+    return true
+
+  txtTarefa.classList.toggle('border-0')
+  txtTarefa.classList.toggle('btn-outline-danger')
+
+  return false
+}
+
+txtTarefa.addEventListener('focus', () => {
+  if (txtTarefa.classList.contains('btn-outline-danger')) {
+    txtTarefa.classList.toggle('border-0')
+    txtTarefa.classList.toggle('btn-outline-danger')
+  }
+})
+
 btnAdd.addEventListener('click', event => {
-  addTarefa()
+  if (isEmpty(txtTarefa.value))
+    addTarefa()
 })
 
 document.addEventListener('keypress', event => {
-  if (event.keyCode == 13) // Tecla enter
-    addTarefa()
+  if (event.keyCode == 13) { // Tecla enter
+    if (isEmpty(txtTarefa.value))
+      addTarefa()
+  }
 })
